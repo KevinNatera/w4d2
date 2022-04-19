@@ -9,9 +9,10 @@ class Rook < Piece
     super
   end
 
-  def moves
-
-  end
+  # def moves(start_pos, end_pos)
+  #     #should access module, skips it instead
+  #     # [4,4]
+  # end
 
   def move_directions
     

@@ -8,8 +8,8 @@ class Piece
     @symbol = symbol
   end
 
-  def moves
-
+  def moves(start_pos, end_pos)
+    
   end
 end
 

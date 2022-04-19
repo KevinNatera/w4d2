@@ -29,7 +29,21 @@ class Board
     if valid_pos?(start_pos) && valid_pos?(end_pos)
       @board[end_x][end_y] = @board[start_x][start_y]
       @board[start_x][start_y] = @null_piece
+
+      # new_pos = @board[start_x][start_y].moves(start_pos,end_pos)
+      # @board[new_pos.first][new_pos.last] = @board[start_x][start_y]
+      # @board[start_x][start_y] = @null_piece
+
+      #call def moves on piece so @board[start_x][start_y].moves 
     end
+  end
+
+  def [](pos)
+    @board[pos.first][pos.last]
+  end
+
+  def []=(pos, val)
+    @board[pos.first][pos.last] = val
   end
 
   def take_piece

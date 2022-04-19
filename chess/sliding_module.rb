@@ -14,7 +14,7 @@ module Slideable
           i = 0
 
           while i < 8
-            if board[i][start_y].is_a?(NullPiece) 
+            if @board[i][start_y].is_a?(NullPiece) 
               moveArr << [i,start_y] 
             else 
                break
@@ -22,15 +22,13 @@ module Slideable
             i += 1
           end
         end 
-        #vertical 
-        if move_x == 0
-        end
-        #diagonal 
-        if move_x == move_y && move_x != 0 && move_y != 0
+        # #vertical 
+        # if move_x == 0
+        # end
+        # #diagonal 
+        # if move_x == move_y && move_x != 0 && move_y != 0
 
-        end
+        # end
          moveArr 
       end
-
- 
 end
