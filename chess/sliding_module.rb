@@ -33,8 +33,9 @@ module Slideable
         break unless board.valid_pos?(pos)
         if board[pos].empty?
           moves << pos
-        else #Capture Logic Goes Here (Compare Piece Color!!!)
-
+        else 
+          moves << pos if board[pos].color != color
+          break
         end 
       end
       moves
