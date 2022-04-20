@@ -4,6 +4,7 @@ require_relative 'require'
 
 class Board
   include Cursorable
+  attr_reader :display
 
   def initialize
     @null_piece = NullPiece.instance
@@ -13,9 +14,11 @@ class Board
     @display.render
   end
 
-  def move_piece(start_pos, end_pos)
+  def move_piece(start_pos)
     @display.render
-    get_input
+# debugger
+    end_pos = @display.get_input
+    # debugger
     start_x = start_pos.first
     start_y = start_pos.last
     if @board[start_x][start_y].is_a?(NullPiece) || !valid_pos?(start_pos)
@@ -89,3 +92,7 @@ class Board
   end
 
 end
+
+b = Board.new 
+
+b.move_piece([0,0])

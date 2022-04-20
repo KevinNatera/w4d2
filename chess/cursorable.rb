@@ -2,6 +2,8 @@ require "io/console"
 require 'byebug'
 
 module Cursorable
+  
+
   KEYMAP = {
     " " => :space,
     "h" => :left,
@@ -38,19 +40,27 @@ module Cursorable
   end
 
   def handle_key(key)
-    case key
-    when :ctrl_c
-      exit 0
-    when :return, :space
-      @cursor_pos
-    when :left, :right, :up, :down
-# debugger
-      update_pos(MOVES[key])
-debugger      
+    selected = false 
+
+    while !selected
+      case key
+      when :ctrl_c
+        exit 0
+      when :return, :space
+        return @cursor_pos   
+      when :left, :right, :up, :down
+        # @board.display.render
+  # debugger
+      @cursor_pos = update_pos(MOVES[key])
+      # key = KEYMAP[read_char]
+      #  handle_key(key)
+      return @cursor_pos if @cursor_pos != nil 
       nil
     else
       puts key
     end
+  end
+
   end
 
   def read_char
@@ -70,9 +80,8 @@ debugger
   end
 
   def update_pos(diff)
-debugger
     new_pos = [@cursor_pos[0] + diff[0], @cursor_pos[1] + diff[1]]
-debugger
-    @cursor_pos = new_pos if @board.in_bounds?(new_pos)
+    @cursor_pos = new_pos if @board[new_pos[0]][new_pos[1]] != nil
+    # debugger
   end
 end
