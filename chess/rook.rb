@@ -4,7 +4,7 @@ require_relative 'sliding_module'
 class Rook < Piece
   include Slideable
 
-  def initialize(board, color, pos, symbol = :R)
+  def initialize(board, color, pos, symbol = '♖')
     super
   end
 

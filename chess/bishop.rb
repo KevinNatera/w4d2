@@ -4,7 +4,7 @@ require_relative 'sliding_module'
 class Bishop < Piece
   include Slideable
 
-  def initialize(board, color, pos, symbol = :B)
+  def initialize(board, color, pos, symbol = '♗')
     super
   end
 

@@ -4,7 +4,7 @@ require_relative 'stepping_module'
 class King < Piece
   include Steppable
 
-  def initialize(board, color, pos, symbol = :KING)
+  def initialize(board, color, pos, symbol = '♔')
     super
   end
 

@@ -6,6 +6,7 @@ class NullPiece < Piece
 
   def initialize 
     @color = :none
+    @symbol = '🙾'
   end
 
   def moves

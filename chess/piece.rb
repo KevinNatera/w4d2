@@ -10,6 +10,10 @@ class Piece
     @symbol = symbol
   end
 
+  def to_s
+    "#{@symbol}"
+  end
+  
   def moves
   end
 
