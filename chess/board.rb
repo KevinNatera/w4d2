@@ -14,10 +14,10 @@ class Board
     @display.render
   end
 
-  def move_piece(start_pos)
+  def move_piece(start_pos,end_pos)
     @display.render
 # debugger
-    end_pos = @display.get_input
+    # end_pos = @display.get_input #actully works, refator for start pos too
     # debugger
     start_x = start_pos.first
     start_y = start_pos.last
@@ -36,6 +36,7 @@ class Board
       new_positions = @board[start_x][start_y].moves
           if new_positions.include?(end_pos)
             @board[start_x][start_y].pos = end_pos
+            @board[start_x][start_y].has_moved = true if @board[start_x][start_y].is_a?(Pawn)
             @board[end_pos.first][end_pos.last] = @board[start_x][start_y]
             @board[start_x][start_y] = @null_piece
             @display.render
@@ -89,10 +90,24 @@ class Board
     @board[0][2] = Bishop.new(self,"black",[0,2])
     @board[0][5] = Bishop.new(self,"white",[0,5])
 
+    @board.each_with_index do |row,idx1|
+      if idx1 == 1 
+        row.each_with_index do |col,idx2|
+          @board[idx1][idx2] = Pawn.new(self,"black",[idx1,idx2])
+        end
+      end
+
+        if idx1 == 6
+        row.each_with_index do |col,idx2|
+          @board[idx1][idx2] = Pawn.new(self,"white",[idx1,idx2])
+        end
+      end
+
+    end
   end
 
 end
 
-b = Board.new 
+# b = Board.new 
 
-b.move_piece([0,0])
+# b.move_piece([0,0])
