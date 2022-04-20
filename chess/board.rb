@@ -70,7 +70,7 @@ class Board
     @board[7][0] = Rook.new(self,"white",[7,0])
     @board[7][7] = Rook.new(self,"white",[7,7])
     @board[0][0] = Rook.new(self,"black",[0,0])
-    @board[0][7] = Rook.new(self,"black",[7,7])
+    @board[0][7] = Rook.new(self,"black",[0,7])
 
     @board[7][4] = Queen.new(self,"white",[7,4])
     @board[0][4] = Queen.new(self,"black",[0,4])

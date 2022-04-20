@@ -4,9 +4,11 @@ module Steppable
   KING = [[1,0], [0,1], [-1,0], [0,-1],[-1, -1], [-1, 1], [1,-1], [1,1]].freeze
 
     def moves
+      # debugger
       move_arr = []
       move_dirs.each do |dx, dy|
-        move_arr.concat(get_unblocked_moves(dx, dy))
+        new_pos = [ pos[0] + dx, pos[1] + dy] 
+        move_arr << new_pos if board.valid_pos?(new_pos)
       end
       move_arr
     end
@@ -22,29 +24,6 @@ module Steppable
     def knight_dir
       KNIGHT
     end
-
-    def get_unblocked_moves(dx, dy)
-  debugger
-      pos_x, pos_y = pos
-      moves = []
-
-      # loop do
-        pos_x, pos_y = pos_x + dx, pos_y + dy
-        pos = [pos_x, pos_y]
-        # break unless board.valid_pos?(pos) 
-
-        if board[pos].empty? && board.valid_pos?(pos) 
-          moves << pos
-        else 
-          moves << pos if board[pos].color != color
-          # break
-        end 
-      # end
-      moves
-    end
-
-
-
 
 
 
