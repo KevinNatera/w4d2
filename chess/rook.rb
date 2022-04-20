@@ -5,17 +5,12 @@ class Rook < Piece
   # extend Slideable
   include Slideable
 
-  def initialize(board, color, symbol)
+  def initialize(board, color, pos, symbol = :R)
     super
   end
 
-  # def moves(start_pos, end_pos)
-  #     #should access module, skips it instead
-  #     # [4,4]
-  # end
-
-  def move_directions
-    
+  def move_dirs
+    horiz_vert
   end
 
 end

@@ -4,10 +4,13 @@ require 'singleton'
 class NullPiece < Piece
   include Singleton
 
-  def initialize
-      
+  def initialize 
   end
 
   def moves
+  end
+
+  def empty?
+    true
   end
 end
