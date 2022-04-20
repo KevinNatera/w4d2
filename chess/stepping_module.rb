@@ -1,7 +1,7 @@
-module Slideable
+module Steppable
 
-  HORIZ_VERT = [[1,0], [0,1], [-1,0], [0,-1]].freeze
-  DIAGONAL = [[-1, -1], [-1, 1], [1,-1], [1,1]].freeze
+  KNIGHT = [[1,2], [2,1], [-1,2], [-2,1], [1,-2], [2,-1], [-1,-2], [-2,-1]].freeze
+  KING = [[1,0], [0,1], [-1,0], [0,-1],[-1, -1], [-1, 1], [1,-1], [1,1]].freeze
 
     def moves
       move_arr = []
@@ -15,28 +15,39 @@ module Slideable
       raise "There was an error."
     end
 
-    def horiz_vert
-      HORIZ_VERT
+    def king_dir
+      KING
     end
 
-    def diagonal
-      DIAGONAL
+    def knight_dir
+      KNIGHT
     end
 
     def get_unblocked_moves(dx, dy)
+  debugger
       pos_x, pos_y = pos
       moves = []
-      loop do
+
+      # loop do
         pos_x, pos_y = pos_x + dx, pos_y + dy
         pos = [pos_x, pos_y]
-        break unless board.valid_pos?(pos)
-        if board[pos].empty?
+        # break unless board.valid_pos?(pos) 
+
+        if board[pos].empty? && board.valid_pos?(pos) 
           moves << pos
         else 
           moves << pos if board[pos].color != color
-          break
+          # break
         end 
-      end
+      # end
       moves
     end
+
+
+
+
+
+
+
+
 end

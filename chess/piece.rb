@@ -11,7 +11,6 @@ class Piece
   end
 
   def moves
-    
   end
 
   def empty?

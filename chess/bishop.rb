@@ -1,15 +1,15 @@
 require_relative 'piece'
 require_relative 'sliding_module'
 
-class Rook < Piece
+class Bishop < Piece
   include Slideable
 
-  def initialize(board, color, pos, symbol = :R)
+  def initialize(board, color, pos, symbol = :B)
     super
   end
 
   def move_dirs
-    horiz_vert
+    diagonal
   end
 
 end
