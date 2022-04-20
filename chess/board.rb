@@ -27,7 +27,7 @@ class Board
 
     end_x = end_pos.first
     end_y = end_pos.last
-    if !@board[end_x][end_y].is_a?(NullPiece) || !valid_pos?(end_pos)
+    if !valid_pos?(end_pos)
       raise "Error: Invalid Move."
     end
 
@@ -104,6 +104,8 @@ class Board
       end
 
     end
+
+    @board[2][3] = Bishop.new(self,"white",[2,3])
   end
 
 end
